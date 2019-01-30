@@ -304,7 +304,7 @@ def practice_problem4c(points):
       :rtype: rg.Point | string
     """
     ###########################################################################
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #     The testing code is already written for you (above).
     #
     # IMPORTANT: This problem is your LOWEST PRIORITY for preparing
@@ -317,15 +317,18 @@ def practice_problem4c(points):
     ###########################################################################
     k = 0
     while True:
+        if k == len(points):
+            break
         point = points[k]
-        if is_prime(point.center.x) == True:
-            if is_prime(point.center.y) == True:
-                y = point.center.y
-                point.center.y = point.center.x
-                point.center.x = y
+        if is_prime(point.x) == True:
+            if is_prime(point.y) == True:
+                y = point.y
+                point.y = point.x
+                point.x = y
                 return point
         k += 1
-
+    n = 'Not found'
+    return n
 
 def run_test_practice_problem4d():
     """ Tests the    practice_problem4d    function. """
@@ -410,14 +413,20 @@ def practice_problem4d(sequence):
       :rtype: int
     """
     ###########################################################################
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #     The testing code is already written for you (above).
     ###########################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:   15 minutes.
     ###########################################################################
-
+    total = 0
+    for k in range(0, len(sequence)-1):
+        if is_prime(sequence[k]) == True:
+            if sequence[k] != sequence[k+1]:
+                if is_prime(sequence[k+1]) == True:
+                    total += sequence[k]
+    return total
 
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
