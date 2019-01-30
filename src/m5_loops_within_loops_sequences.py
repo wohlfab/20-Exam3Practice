@@ -6,8 +6,8 @@ This problem provides practice at:
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Brandon Wohlfarth.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ###############################################################################
 # Students:
@@ -39,7 +39,7 @@ def main():
 def run_test_integers():
     """ Tests the    integers    function. """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement this TEST function.
+    # DONE: 2. Implement this TEST function.
     #   It TESTS the  integers  function defined below.
     #   Include at least ** 1 ** ADDITIONAL test beyond those we wrote.
     #
@@ -71,7 +71,18 @@ def run_test_integers():
                        ])
     print('Expected is:', expected)
     print('Actual is:  ', answer)
-
+    # Test 2:
+    expected = [3, 10, 47, 67, 10, 77, -4]
+    answer = integers([(3),
+                       (10, 'hi', 'no'),
+                       [ 2.5],
+                       'hello',
+                       [47, 67, 10, 77.77],
+                       ['oops', 77, 8.1],
+                       [-4]
+                       ])
+    print('Expected is:', expected)
+    print('Actual is:  ', answer)
 
 def integers(sequence_of_sequences):
     """
@@ -119,7 +130,13 @@ def integers(sequence_of_sequences):
     #    DIFFICULTY:      6
     #    TIME ESTIMATE:  10 minutes.
     # -------------------------------------------------------------------------
-
+    list = []
+    for k in range(len(sequence_of_sequences)):
+        if type(sequence_of_sequences[k]) is list:
+            for j in range(len(sequence_of_sequences[k])):
+                if type(sequence_of_sequences[k][j]) is int:
+                    list = list + [sequence_of_sequences[k][j]]
+    return list
 
 def run_test_big_letters():
     """ Tests the    big_letters    function. """
